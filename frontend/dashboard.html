@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your task dashboard — manage and organize all your tasks">
+  <title>Dashboard — Smart Task Manager</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <div class="brand">✦ Smart Tasks</div>
+        <div class="user-info">
+          <span class="user-greeting">Hello, <span id="user-name">User</span></span>
+          <button class="btn-logout" id="logout-btn">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-number" id="stat-total">0</div>
+          <div class="stat-label">Total Tasks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-pending">0</div>
+          <div class="stat-label">Pending</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-completed">0</div>
+          <div class="stat-label">Completed</div>
+        </div>
+      </div>
+
+      <!-- Add Task -->
+      <div class="add-task-section">
+        <button class="add-task-toggle" id="add-task-toggle">
+          <span style="font-size:20px">+</span> Add a new task...
+        </button>
+        <div class="add-task-form" id="add-task-form">
+          <form id="new-task-form">
+            <div class="form-group">
+              <label for="task-title">Task Title</label>
+              <input type="text" id="task-title" placeholder="What needs to be done?" required>
+            </div>
+            <div class="form-group">
+              <label for="task-desc">Description (optional)</label>
+              <input type="text" id="task-desc" placeholder="Add some details...">
+            </div>
+            <div class="form-row">
+              <button type="submit" class="btn btn-primary" style="flex:1">Add Task</button>
+              <button type="button" class="btn btn-ghost" id="cancel-add">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <!-- Task List -->
+      <div class="task-list" id="task-list">
+        <div class="page-loader"><div class="spinner"></div></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script>initDashboard();</script>
+</body>
+</html>
